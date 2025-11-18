@@ -1,0 +1,23 @@
+<configuration>
+
+    <!-- Console para ver logs no terminal -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Enviar logs para Graylog via GELF (UDP) -->
+    <appender name="GELF" class="de.siegmar.logbackgelf.GelfUdpAppender">
+        <graylogHost>localhost</graylogHost>
+        <graylogPort>12201</graylogPort>
+        <facility>pessoa-api</facility>
+        <includeRawMessage>true</includeRawMessage>
+        <includeMdcData>true</includeMdcData>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="GELF"/>
+    </root>
+</configuration>
