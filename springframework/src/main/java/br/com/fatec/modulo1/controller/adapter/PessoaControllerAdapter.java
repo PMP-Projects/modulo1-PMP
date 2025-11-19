@@ -6,6 +6,7 @@ import br.com.fatec.modulo1.entity.Pessoa;
 
 import java.util.UUID;
 
+@SuppressWarnings("java:S1118") // Classe utilitária não precisa de cobertura no construtor
 public final class PessoaControllerAdapter {
 
     private PessoaControllerAdapter() {
