@@ -6,6 +6,8 @@ import br.com.fatec.modulo1.exception.InternalServerException;
 import br.com.fatec.modulo1.exception.NotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -22,12 +24,16 @@ import static org.springframework.http.HttpStatus.*;
 @RestControllerAdvice
 public class RestExceptionHandler {
 
+    private static final Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
+
+
     @ResponseBody
     @ResponseStatus(INTERNAL_SERVER_ERROR)
     @ExceptionHandler({InternalServerException.class, Exception.class})
     public ErrorResponse handleInternalServerError(
             final Exception exception,
             final HttpServletRequest request) {
+        log.error("Erro interno em {} : {}", request.getServletPath(), exception.getMessage(), exception);
         return new ErrorResponse(
                 LocalDateTime.now(),
                 request.getServletPath(),
@@ -42,6 +48,7 @@ public class RestExceptionHandler {
     public ErrorResponse handleNotFound(
             final NotFoundException exception,
             final HttpServletRequest request) {
+        log.error("Erro interno em {} : {}", request.getServletPath(), exception.getMessage(), exception);
         return new ErrorResponse(
                 LocalDateTime.now(),
                 request.getServletPath(),
@@ -58,6 +65,7 @@ public class RestExceptionHandler {
     public ErrorResponse handleBadRequest(
             final Exception exception,
             final HttpServletRequest request) {
+        log.error("Erro interno em {} : {}", request.getServletPath(), exception.getMessage(), exception);
         return new ErrorResponse(
                 LocalDateTime.now(),
                 request.getServletPath(),
