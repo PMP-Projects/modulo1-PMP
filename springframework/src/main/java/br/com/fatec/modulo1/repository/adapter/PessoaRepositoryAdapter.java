@@ -5,6 +5,11 @@ import br.com.fatec.modulo1.repository.orm.PessoaOrm;
 
 public class PessoaRepositoryAdapter {
 
+    // Construtor privado para evitar instâncias
+    private PessoaRepositoryAdapter() {
+        throw new UnsupportedOperationException("Classe utilitária não pode ser instanciada");
+    }
+
     public static Pessoa toEntity(PessoaOrm orm) {
         return new Pessoa(
                 orm.id(),

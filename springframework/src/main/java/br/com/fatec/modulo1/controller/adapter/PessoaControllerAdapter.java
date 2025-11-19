@@ -6,7 +6,7 @@ import br.com.fatec.modulo1.entity.Pessoa;
 
 import java.util.UUID;
 
-public class PessoaControllerAdapter {
+public final class PessoaControllerAdapter {
 
     public static Pessoa toEntity(PessoaRequest request) {
         return new Pessoa(

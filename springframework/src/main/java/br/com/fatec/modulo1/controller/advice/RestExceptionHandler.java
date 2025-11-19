@@ -26,6 +26,8 @@ public class RestExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
 
+    private static final String INTERNAL_ERROR_MSG = "Erro interno em {} : {}";
+
 
     @ResponseBody
     @ResponseStatus(INTERNAL_SERVER_ERROR)
@@ -33,7 +35,7 @@ public class RestExceptionHandler {
     public ErrorResponse handleInternalServerError(
             final Exception exception,
             final HttpServletRequest request) {
-        log.error("Erro interno em {} : {}", request.getServletPath(), exception.getMessage(), exception);
+        log.error(INTERNAL_ERROR_MSG, request.getServletPath(), exception.getMessage(), exception);
         return new ErrorResponse(
                 LocalDateTime.now(),
                 request.getServletPath(),
@@ -48,7 +50,7 @@ public class RestExceptionHandler {
     public ErrorResponse handleNotFound(
             final NotFoundException exception,
             final HttpServletRequest request) {
-        log.error("Erro interno em {} : {}", request.getServletPath(), exception.getMessage(), exception);
+        log.error(INTERNAL_ERROR_MSG, request.getServletPath(), exception.getMessage(), exception);
         return new ErrorResponse(
                 LocalDateTime.now(),
                 request.getServletPath(),
@@ -65,7 +67,7 @@ public class RestExceptionHandler {
     public ErrorResponse handleBadRequest(
             final Exception exception,
             final HttpServletRequest request) {
-        log.error("Erro interno em {} : {}", request.getServletPath(), exception.getMessage(), exception);
+        log.error(INTERNAL_ERROR_MSG, request.getServletPath(), exception.getMessage(), exception);
         return new ErrorResponse(
                 LocalDateTime.now(),
                 request.getServletPath(),
