@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
-public record PessoaRequest(
+public record PessoaCreateRequest(
         @NotBlank(message = "Nome é obrigatório")
         String nome,
 

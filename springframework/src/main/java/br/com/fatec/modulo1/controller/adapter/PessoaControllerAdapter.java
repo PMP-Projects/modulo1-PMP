@@ -1,6 +1,6 @@
 package br.com.fatec.modulo1.controller.adapter;
 
-import br.com.fatec.modulo1.controller.dto.request.PessoaRequest;
+import br.com.fatec.modulo1.controller.dto.request.PessoaCreateRequest;
 import br.com.fatec.modulo1.controller.dto.response.PessoaResponse;
 import br.com.fatec.modulo1.entity.Pessoa;
 
@@ -12,7 +12,7 @@ public final class PessoaControllerAdapter {
         throw new UnsupportedOperationException("Classe utilitária não pode ser instanciada");
     }
 
-    public static Pessoa toEntity(PessoaRequest request) {
+    public static Pessoa toEntity(PessoaCreateRequest request) {
         return new Pessoa(
                 UUID.randomUUID().toString(),
                 request.nome(),
