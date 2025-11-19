@@ -1,7 +1,7 @@
 package br.com.fatec.modulo1.controller;
 
 import br.com.fatec.modulo1.controller.adapter.PessoaControllerAdapter;
-import br.com.fatec.modulo1.controller.dto.request.PessoaRequest;
+import br.com.fatec.modulo1.controller.dto.request.PessoaCreateRequest;
 import br.com.fatec.modulo1.controller.dto.request.PessoaUpdateRequest;
 import br.com.fatec.modulo1.controller.dto.response.PessoaResponse;
 import br.com.fatec.modulo1.entity.Pessoa;
@@ -12,7 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/pessoa/v1")
+@RequestMapping("api/v1/pessoa")
 public class PessoaController {
 
     private final PessoaService service;
@@ -22,7 +22,7 @@ public class PessoaController {
     }
 
     @PostMapping
-    public PessoaResponse salvar(@RequestBody @Valid PessoaRequest request) {
+    public PessoaResponse salvar(@RequestBody @Valid PessoaCreateRequest request) {
         Pessoa pessoa = PessoaControllerAdapter.toEntity(request);
         return PessoaControllerAdapter.toResponse(service.salvar(pessoa));
     }
