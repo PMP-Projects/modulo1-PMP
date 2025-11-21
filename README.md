@@ -145,7 +145,7 @@ curl --request POST \
   --url http://localhost:8081/api/v1/pessoa \
   --header 'Content-Type: application/json' \
   --data '{
-    "nome": "Kleber Nunes Unico e Leal",
+    "nome": "Julio Neves",
     "dataNascimento": "2000-10-10"
   }'
 ````
