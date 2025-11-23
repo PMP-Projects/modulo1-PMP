@@ -12,7 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/pessoa")
+@RequestMapping("modulo1/api/v1/pessoa")
 public class PessoaController {
 
     private final PessoaService service;

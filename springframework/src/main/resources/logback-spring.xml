@@ -8,8 +8,8 @@
 
     <!-- GELF UDP appender -->
     <appender name="GELF" class="de.siegmar.logbackgelf.GelfUdpAppender">
-        <graylogHost>${GELF_HOST}</graylogHost>
-        <graylogPort>${GELF_PORT}</graylogPort>
+        <graylogHost>${GELF_HOST:-127.0.0.1}</graylogHost>
+        <graylogPort>${GELF_PORT:-12201}</graylogPort>
         <facility>pessoa-api</facility>
         <includeRawMessage>true</includeRawMessage>
         <includeMdcData>true</includeMdcData>

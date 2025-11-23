@@ -141,44 +141,51 @@ A esteira CI/CD deste projeto é automatizada via Github Actions.
 
 ```bash 
 curl --request POST \
-  --url http://localhost:8081/api/v1/pessoa \
+  --url http://localhost:8081/modulo1/api/v1/pessoa \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWxpdXNlcyIsImlhdCI6MTc2Mzg1NDExMCwicm9sZXMiOlsiUk9MRV9VU0VSIl19.WUJzlp_OkKp2-uaI-XuRNqS3fIs0L2fHVualEvbTkXA' \
   --header 'Content-Type: application/json' \
   --data '{
-    "nome": "Julio Neves",
-    "dataNascimento": "2000-10-10"
-  }'
+  "nome": "Julio Neves",
+  "dataNascimento": "2000-10-10"
+}
+'
 ````
 
 #### Buscar pessoa por ID
 
 ```bash 
 curl --request GET \
-  --url http://localhost:8081/api/v1/pessoa/7528398d-a0f6-481d-a3c0-1e7cfdb6f23f \
+  --url http://localhost:8081/modulo1/api/v1/pessoa/ea0a91ab-bcd4-4626-aa5d-44b8f5d4d9f5 \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWxpdXNlcyIsImlhdCI6MTc2Mzg1NDExMCwicm9sZXMiOlsiUk9MRV9VU0VSIl19.WUJzlp_OkKp2-uaI-XuRNqS3fIs0L2fHVualEvbTkXA' \
   --header 'User-Agent: insomnia/11.6.2'
 ````
 
 #### Listar pessoas ativas
 ```bash 
 curl --request GET \
-  --url http://localhost:8081/api/v1/pessoa \
+  --url http://localhost:8081/modulo1/api/v1/pessoa \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWxpdXNlcyIsImlhdCI6MTc2Mzg1NDExMCwicm9sZXMiOlsiUk9MRV9VU0VSIl19.WUJzlp_OkKp2-uaI-XuRNqS3fIs0L2fHVualEvbTkXA' \
   --header 'User-Agent: insomnia/11.6.2'
 ````
 
 #### Atualizar pessoa
 ```bash 
 curl --request PUT \
-  --url http://localhost:8081/api/v1/pessoa/302af098-1a74-494f-8ac7-dfe59f43c803 \
+  --url http://localhost:8081/modulo1/api/v1/pessoa/ea0a91ab-bcd4-4626-aa5d-44b8f5d4d9f5 \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWxpdXNlcyIsImlhdCI6MTc2Mzg1NDExMCwicm9sZXMiOlsiUk9MRV9VU0VSIl19.WUJzlp_OkKp2-uaI-XuRNqS3fIs0L2fHVualEvbTkXA' \
   --header 'Content-Type: application/json' \
   --data '{
-    "nome": "Juliana Oliveira",
-    "dataNascimento": "2000-10-10"
-  }'
+  "nome": "Juliana Oliveira",
+  "dataNascimento": "2000-10-10"
+}
+'
 ````
 #### Deletar pessoa
 ````bash
 curl --request DELETE \
---url http://localhost:8081/api/v1/pessoa/302af098-1a74-494f-8ac7-dfe59f43c803
-````
+  --url http://localhost:8081/modulo1/api/v1/pessoa/ea0a91ab-bcd4-4626-aa5d-44b8f5d4d9f5 \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWxpdXNlcyIsImlhdCI6MTc2Mzg1NDExMCwicm9sZXMiOlsiUk9MRV9VU0VSIl19.WUJzlp_OkKp2-uaI-XuRNqS3fIs0L2fHVualEvbTkXA'
+  ````
 
 ## ✍️ Autor do Projeto
 
